@@ -1,0 +1,30 @@
+From f79c4d9e67a51e6899df990b4845a2ba11222773 Mon Sep 17 00:00:00 2001
+From: Artsiom Karakin <aning@protonmail.ch>
+Date: Fri, 31 Jan 2020 12:43:26 +0300
+Subject: [PATCH] I add my tribonacci to your repository
+
+---
+ tribonacci.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+ create mode 100644 tribonacci.c
+
+diff --git a/tribonacci.c b/tribonacci.c
+new file mode 100644
+index 0000000..15fea91
+--- /dev/null
++++ b/tribonacci.c
+@@ -0,0 +1,11 @@
++#include <stdlib.h>
++
++size_t sig_length = 3;
++long long *tribonacci(const long long signature[sig_length], size_t n) {
++    long long *element = calloc(n,sizeof(long long));
++    for (size_t i = 0; i < sig_length; ++i){ element[i] = signature[i]; }
++    for (size_t i = sig_length; i < n; ++i) {
++        element[i] += element[i - 1] + element[i - 2] + element[i - 3];
++    }
++   if (n != 0){return element;} else { return NULL;} 
++}
+-- 
+2.24.1
+
